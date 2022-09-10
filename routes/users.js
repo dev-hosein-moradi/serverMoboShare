@@ -74,6 +74,17 @@ router.get("/friends/:userId", async (req, res) => {
     res.status(500).json(err);
   }
 });
+//get all users
+router.get("/allusers/:userId", async (req, res) => {
+  const currId = req.params.userId;
+  try {
+    const users = await User.find();
+    const filteredUser = users.filter((u) => u._id.valueOf() !== currId);
+    res.status(200).json(filteredUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //follow a user
 
