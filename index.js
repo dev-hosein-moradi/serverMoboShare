@@ -41,7 +41,7 @@ connection.once("open", (err) => {
     console.log("mongoDB database connetction established successfully.");
   }
 });
-// app.use("/images", express.static(path.join(__dirname, "public/images")));
+ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 // const storage = multer.diskStorage({
 //   destination: (req, file, cb) => {
@@ -77,5 +77,3 @@ const server = app.listen(
   port,
   console.log(`Server running on port ${port}..`)
 );
-
-
